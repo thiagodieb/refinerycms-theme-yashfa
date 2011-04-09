@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <%= render :partial => "/shared/head", :locals => {:theme => true} %>
+  <body>
+    <%= render :partial => "/shared/site_bar" %>
+	<%= render :partial => "/shared/menu",
+	           :locals => {
+	             :dom_id => 'menu',
+	             :css => 'menu'
+	           } -%>
+       <div id='page'>
+        <%= render :partial => "/shared/ie6check" if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+        <div id='header'>
+          <%= render :partial => "/shared/header" %>
+        </div>
+		<hr>
+        <div id='thebg' class='clearfix'>
+			<div id="content-wrap">
+				<div id="content">
+					<div class="gap">
+				     <%= yield %>
+					 </div>
+				</div>
+			</div>
+			<div id="sidebar">
+				sidbar
+			</div>
+        </div>
+      </div>
+      
+      <div id='more-footer'>
+      	<div id='more-more-footer'>
+      		<div class="inner-one inner" style="height: 394px; overflow: auto;">
+				<div class="grap">
+				block one
+				</div>
+			</div>
+			<div class="inner-two inner" style="height: 394px; overflow: auto;">
+				<div class="grap">
+				block two				
+				</div>
+			</div>
+			<div class="inner-three inner" style="height: 394px; overflow: auto;">
+				<div class="grap">
+				block three				
+				</div>
+			</div>
+      	</div>
+      </div>
+
+    	<div id="extra-footer">
+			<div id="footer">
+		        <%= render :partial => "/shared/footer" %>
+			</div>
+		</div>
+   </body>
+</html>
